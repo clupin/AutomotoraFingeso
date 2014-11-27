@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Mensaje implements Serializable {
@@ -12,6 +13,12 @@ public class Mensaje implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    @NotNull
+    private Cliente emisor;
+    
+    @NotNull
+    private String texto;
 
     public Long getId() {
         return id;

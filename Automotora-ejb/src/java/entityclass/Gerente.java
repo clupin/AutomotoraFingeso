@@ -9,12 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Gerente extends Entidad implements Serializable {
     private static final long serialVersionUID = 1L;
     
-    @ManyToOne(optional = false)
+    @OneToOne
     @JoinColumn(name = "usuario") 
     private Usuario usuario;
     

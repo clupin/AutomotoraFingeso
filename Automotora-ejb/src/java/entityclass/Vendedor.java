@@ -7,11 +7,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Vendedor extends Entidad implements Serializable {
     private static final long serialVersionUID = 1L;
+    
+    @OneToOne
+    @JoinColumn(name = "usuario") 
+    private Usuario usuario;
     
     @OneToMany(mappedBy = "DocumentoVenta")
     @JoinColumn(name = "historialVenta") 
@@ -24,6 +30,14 @@ public class Vendedor extends Entidad implements Serializable {
     @OneToMany(mappedBy = "Mensaje")
     @JoinColumn(name = "mensaje") 
     public List<Mensaje> mensaje;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     public List<DocumentoVenta> getHistorialVenta() {
         return historialVenta;

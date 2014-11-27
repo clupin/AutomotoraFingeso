@@ -22,6 +22,12 @@ public abstract class Automovil implements Serializable {
     
     @NotNull
     private String año;
+    
+    @NotNull
+    private String color;
+    
+    @NotNull
+    private int precio;
 
     public String getMarca() {
         return marca;
@@ -63,13 +69,6 @@ public abstract class Automovil implements Serializable {
         this.precio = precio;
     }
     
-    @NotNull
-    private String color;
-    
-    @NotNull
-    private int precio;
-    
-
     public Long getId() {
         return id;
     }

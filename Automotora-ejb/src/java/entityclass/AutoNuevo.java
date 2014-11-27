@@ -13,10 +13,13 @@ public class AutoNuevo extends Automovil implements Serializable {
     private static final long serialVersionUID = 1L;
    
     @NotNull
-    public Date fecha;
+    private Date fecha;
     
     @NotNull
-    public int cantidad;
+    private int cantidad;
+    
+    @NotNull
+    private Proveedor distribuidor;
 
     public Date getFecha() {
         return fecha;
@@ -33,6 +36,13 @@ public class AutoNuevo extends Automovil implements Serializable {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
-    
+
+    public Proveedor getDistribuidor() {
+        return distribuidor;
+    }
+
+    public void setDistribuidor(Proveedor distribuidor) {
+        this.distribuidor = distribuidor;
+    }
     
 }

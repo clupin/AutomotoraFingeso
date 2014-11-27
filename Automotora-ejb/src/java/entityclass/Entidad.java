@@ -18,11 +18,13 @@ public abstract class Entidad implements Serializable {
     @NotNull
     private String nombre;
     
-    private List<Long> telefono;
+    @NotNull
+    private String rut;
+    
+    private List<Integer> telefono;
     
     private List<String> email;
     
-
     public Long getId() {
         return id;
     }
@@ -39,11 +41,19 @@ public abstract class Entidad implements Serializable {
         this.nombre = nombre;
     }
 
-    public List<Long> getTelefono() {
+    public String getRut() {
+        return rut;
+    }
+
+    public void setRut(String rut) {
+        this.rut = rut;
+    }
+
+    public List<Integer> getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(List<Long> telefono) {
+    public void setTelefono(List<Integer> telefono) {
         this.telefono = telefono;
     }
 

@@ -20,9 +20,9 @@ public class AutoUsado extends Automovil implements Serializable {
     @NotNull
     public int kilometraje;
     
-    @OneToMany(mappedBy = "Historial")
-    @JoinColumn(name = "historial")
-    private List<Historial> historial;
+    @OneToMany(mappedBy = "Parte")
+    @JoinColumn(name = "partes")
+    private List<Parte> partes;
 
     public String getPatente() {
         return patente;
@@ -40,13 +40,12 @@ public class AutoUsado extends Automovil implements Serializable {
         this.kilometraje = kilometraje;
     }
 
-    public List<Historial> getHistorial() {
-        return historial;
+    public List<Parte> getPartes() {
+        return partes;
     }
 
-    public void setHistorial(List<Historial> historial) {
-        this.historial = historial;
+    public void setPartes(List<Parte> partes) {
+        this.partes = partes;
     }
-    
-    
+
 }
