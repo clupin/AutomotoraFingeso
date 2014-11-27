@@ -13,7 +13,42 @@ import javax.persistence.OneToMany;
 public class Vendedor extends Entidad implements Serializable {
     private static final long serialVersionUID = 1L;
     
-    @OneToMany(mappedBy = "AutoNuevo")
-    @JoinColumn(name = "autosComprados") 
-    public List<AutoNuevo> autosComprados;
+    @OneToMany(mappedBy = "DocumentoVenta")
+    @JoinColumn(name = "historialVenta") 
+    public List<DocumentoVenta> historialVenta;
+    
+    @OneToMany(mappedBy = "DocumentoCompra")
+    @JoinColumn(name = "historialCompra") 
+    public List<DocumentoCompra> historialCompra;
+    
+    @OneToMany(mappedBy = "Mensaje")
+    @JoinColumn(name = "mensaje") 
+    public List<Mensaje> mensaje;
+
+    public List<DocumentoVenta> getHistorialVenta() {
+        return historialVenta;
+    }
+
+    public void setHistorialVenta(List<DocumentoVenta> historialVenta) {
+        this.historialVenta = historialVenta;
+    }
+
+    public List<DocumentoCompra> getHistorialCompra() {
+        return historialCompra;
+    }
+
+    public void setHistorialCompra(List<DocumentoCompra> historialCompra) {
+        this.historialCompra = historialCompra;
+    }
+
+    public List<Mensaje> getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(List<Mensaje> mensaje) {
+        this.mensaje = mensaje;
+    }
+    
+    
+    
 }
