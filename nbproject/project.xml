@@ -8,10 +8,6 @@
             <web-module-libraries/>
             <web-module-additional-libraries>
                 <library>
-                    <file>${reference.Automotora-war.dist-ear}</file>
-                    <path-in-war>/</path-in-war>
-                </library>
-                <library>
                     <file>${reference.Automotora-ejb.dist-ear}</file>
                     <path-in-war>/</path-in-war>
                 </library>
