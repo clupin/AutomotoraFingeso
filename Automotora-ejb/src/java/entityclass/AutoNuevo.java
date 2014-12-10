@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement
-@NamedQuery(name = "Cliente.findById",query = "SELECT a FROM AutoNuevo a WHERE a.id = :id")
+@NamedQuery(name = "Cliente.findById",query = "SELECT a FROM AutoNuevo a WHERE a.id = : id")
 public class AutoNuevo extends Automovil implements Serializable {
     private static final long serialVersionUID = 1L;
    
