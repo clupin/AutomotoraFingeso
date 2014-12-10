@@ -1,20 +1,19 @@
 package managedbean;
 
-import entityclass.Proveedor;
-import java.util.Date;
+import entityclass.Parte;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-import sessionbeans.AutoNuevoFacadeLocal;
+import sessionbeans.AutoUsadoFacadeLocal;
 
 @ManagedBean
 @RequestScoped
-public class AutoNuevoManagedBean_despreciable {
-    
+public class AutoUsadoManagedBean {
     @EJB
-    private AutoNuevoFacadeLocal autoNuevoFacade;
+    private AutoUsadoFacadeLocal autoUsadoFacade;
     
     private Long id;
     private String marca;
@@ -22,11 +21,12 @@ public class AutoNuevoManagedBean_despreciable {
     private String año;
     private String color;
     private int precio=0;
-    private Date fecha;
-    private int cantidad=0;
-    private Proveedor distribuidor;
+    public String patente;
+    public int kilometraje=0;
+    private List<Parte> partes;
     
-    public AutoNuevoManagedBean_despreciable() {
+    public AutoUsadoManagedBean() {
+        
     }
 
     public Long getId() {
@@ -77,55 +77,57 @@ public class AutoNuevoManagedBean_despreciable {
         this.precio = precio;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public String getPatente() {
+        return patente;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setPatente(String patente) {
+        this.patente = patente;
     }
 
-    public int getCantidad() {
-        return cantidad;
+    public int getKilometraje() {
+        return kilometraje;
     }
 
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
+    public void setKilometraje(int kilometraje) {
+        this.kilometraje = kilometraje;
     }
 
-    public Proveedor getDistribuidor() {
-        return distribuidor;
+    public List<Parte> getPartes() {
+        return partes;
     }
 
-    public void setDistribuidor(Proveedor distribuidor) {
-        this.distribuidor = distribuidor;
+    public void setPartes(List<Parte> partes) {
+        this.partes = partes;
     }
     
     public void nuevoAutoUsado(){
         FacesMessage mensaje;
-        //autoNuevoFacade.crearAutoNuevo(marca, modelo, año, color, precio, distribuidor, fecha, cantidad);
+        //autoUsadoFacade.crearAutoUsado(id, marca, modelo, año, color, precio, patente, kilometraje, partes);
         
         if (marca.isEmpty() || modelo.isEmpty() || año.isEmpty() || color.isEmpty() || precio==0
-                 || distribuidor==null || fecha==null || cantidad==0){
+                 || patente.isEmpty() || kilometraje==0 || partes.isEmpty()){
             FacesContext context = FacesContext.getCurrentInstance();
             mensaje = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                    "Automóvil Nuevo", "Falta rellenar uno o más datos");
+                    "Automóvil Usado", "Falta rellenar uno o más datos");
             context.addMessage(null, mensaje);
         } 
         else{
             FacesContext context = FacesContext.getCurrentInstance();
             mensaje = new FacesMessage(FacesMessage.SEVERITY_INFO,
-                    "Automóvil Nuevo", "Agregado con éxito");
-            autoNuevoFacade.crearAutoNuevo(marca, modelo, año, color, precio, distribuidor, fecha, cantidad);
+                    "Automóvil Usado", "Agregado con éxito");
+            autoUsadoFacade.crearAutoUsado(marca, modelo, año, color, precio, patente, kilometraje, partes);
             context.addMessage(null, mensaje);
             marca = "";
             modelo = "";
             año = "";
             color = "";
             precio = 0;
-            distribuidor = null;
-            fecha = null;
-            cantidad = 0;
+            patente = "";
+            kilometraje = 0;
+            partes.clear();
         } 
     }
+    
+    
 }
