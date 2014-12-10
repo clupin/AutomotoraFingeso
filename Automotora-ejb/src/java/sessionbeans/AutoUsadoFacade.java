@@ -25,9 +25,8 @@ public class AutoUsadoFacade extends AbstractFacade<AutoUsado> implements AutoUs
         super(AutoUsado.class);
     }
 
-    public boolean crearAutoUsado(Long id, String marca, String modelo, String año, String color, int precio, String patente, int kilometraje, List<Parte> partes) {
+    public boolean crearAutoUsado(String marca, String modelo, String año, String color, int precio, String patente, int kilometraje, List<Parte> partes) {
         AutoUsado autoUsado = new AutoUsado();
-        autoUsado.setId(id);
         autoUsado.setMarca(marca);
         autoUsado.setModelo(modelo);
         autoUsado.setAño(año);

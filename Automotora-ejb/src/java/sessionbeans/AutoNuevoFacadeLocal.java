@@ -23,7 +23,7 @@ public interface AutoNuevoFacadeLocal {
 
     int count();
 
-    boolean crearAutoNuevo(Long id, String marca, String modelo, String año, String color, int precio, Proveedor DistribuidorLote, Date fecha, int cantidad);
+    boolean crearAutoNuevo(String marca, String modelo, String año, String color, int precio, Proveedor DistribuidorLote, Date fecha, int cantidad);
 
     AutoNuevo buscarAutoNuevoID(Long id);
     

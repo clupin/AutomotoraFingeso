@@ -22,7 +22,7 @@ public interface AutoUsadoFacadeLocal {
 
     int count();
 
-    boolean crearAutoUsado(Long id, String marca, String modelo, String año, String color, int precio, String patente, int kilometraje, List<Parte> partes);
+    boolean crearAutoUsado(String marca, String modelo, String año, String color, int precio, String patente, int kilometraje, List<Parte> partes);
 
     boolean agregarParte(AutoUsado autoUsado, Parte parte);
 

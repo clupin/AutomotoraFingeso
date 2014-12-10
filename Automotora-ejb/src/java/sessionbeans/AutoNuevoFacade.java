@@ -25,9 +25,8 @@ public class AutoNuevoFacade extends AbstractFacade<AutoNuevo> implements AutoNu
         super(AutoNuevo.class);
     }
 
-    public boolean crearAutoNuevo(Long id, String marca, String modelo, String año, String color, int precio, Proveedor DistribuidorLote, Date fecha, int cantidad) {
+    public boolean crearAutoNuevo(String marca, String modelo, String año, String color, int precio, Proveedor DistribuidorLote, Date fecha, int cantidad) {
         AutoNuevo autoNuevo = new AutoNuevo();
-        autoNuevo.setId(id);
         autoNuevo.setMarca(marca);
         autoNuevo.setModelo(modelo);
         autoNuevo.setAño(año);
@@ -83,7 +82,6 @@ public class AutoNuevoFacade extends AbstractFacade<AutoNuevo> implements AutoNu
             System.out.println("No existe nadie con ese correo");
         }
     }
-    
     
     @Override
     public AutoNuevo editarAutoUsado(Long id, String marca, String modelo, String año, String color, int precio, Proveedor DistribuidorLote, Date fecha, int cantidad) {
