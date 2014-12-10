@@ -20,5 +20,7 @@ public interface ProveedorFacadeLocal {
     List<Proveedor> findRange(int[] range);
 
     int count();
+
+    boolean crearProveedor(Long id, String rut, String nombre, List<Integer> telefono, List<String> email, List<String> direccion);
     
 }
