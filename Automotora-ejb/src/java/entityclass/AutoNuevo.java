@@ -6,9 +6,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
+@XmlRootElement
+@NamedQuery(name = "Cliente.findById",query = "SELECT a FROM AutoNuevo a WHERE a.id = :id")
 public class AutoNuevo extends Automovil implements Serializable {
     private static final long serialVersionUID = 1L;
    
