@@ -22,5 +22,7 @@ public interface ProveedorFacadeLocal {
     int count();
 
     boolean crearProveedor(Long id, String rut, String nombre, List<Integer> telefono, List<String> email, List<String> direccion);
+
+    boolean agregarDireccion(Proveedor proveedor, String direccion);
     
 }

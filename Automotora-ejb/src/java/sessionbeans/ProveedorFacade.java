@@ -44,5 +44,12 @@ public class ProveedorFacade extends AbstractFacade<Proveedor> implements Provee
         }
         return true;
     }
+
+    public boolean agregarDireccion(Proveedor proveedor, String direccion) {
+        proveedor.agregarDireccion(direccion);
+        return true;
+    }
+    
+    
     
 }

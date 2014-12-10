@@ -22,6 +22,10 @@ public class Proveedor extends Entidad implements Serializable {
         this.direcciones = direcciones;
     }
     
+    public void agregarDireccion(String direccion){
+        this.direcciones.add(direccion);
+    }
+    
     //agregar funcion q a la lista existente solo agrege la ultima direccion
     //push a la lista
 }
