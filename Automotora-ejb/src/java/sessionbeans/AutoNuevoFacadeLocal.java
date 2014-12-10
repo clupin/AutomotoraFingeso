@@ -24,5 +24,11 @@ public interface AutoNuevoFacadeLocal {
     int count();
 
     boolean crearAutoNuevo(Long id, String marca, String modelo, String año, String color, int precio, Proveedor DistribuidorLote, Date fecha, int cantidad);
+
+    AutoNuevo buscarAutoNuevoID(Long id);
+    
+    public void eliminarAutoNuevo(Long id);
+    
+    public AutoNuevo editarAutoUsado(Long id, String marca, String modelo, String año, String color, int precio, Proveedor DistribuidorLote, Date fecha, int cantidad);
     
 }

@@ -25,5 +25,11 @@ public interface AutoUsadoFacadeLocal {
     boolean crearAutoUsado(Long id, String marca, String modelo, String año, String color, int precio, String patente, int kilometraje, List<Parte> partes);
 
     boolean agregarParte(AutoUsado autoUsado, Parte parte);
+
+    AutoUsado buscarAutoUsadoID(Long id);
+
+    void eliminarAutoUsado(Long id);
+
+    AutoUsado editarAutoUsado(Long id, String marca, String modelo, String año, String color, int precio, String patente, int kilometraje, List<Parte> partes);
     
 }

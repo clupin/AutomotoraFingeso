@@ -6,6 +6,8 @@ import java.util.Date;
 import javax.ejb.Stateless;
 import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.NonUniqueResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TransactionRequiredException;
 
@@ -47,6 +49,60 @@ public class AutoNuevoFacade extends AbstractFacade<AutoNuevo> implements AutoNu
             return false;
         }
         return true;
+    }
+
+    @Override
+    public AutoNuevo buscarAutoNuevoID(Long id) {
+        AutoNuevo buscado = null;
+        System.out.println("Buscando el auto de ID :"+id);
+        try{
+            buscado = AutoNuevo.class.cast(getEntityManager().createNamedQuery("AutoNuevo.findByID")
+                .setParameter("idAutoNuevo", id)
+                .getSingleResult());
+            System.out.println("Se encontró a :"+buscado.getMarca()+" "+buscado.getModelo());
+        } catch (IllegalArgumentException iae){
+            System.out.println(iae.getMessage());
+        }catch (NoResultException nre){
+            System.out.println("No se encontró nada");
+            return null;
+        }catch (NonUniqueResultException nure){
+            System.out.println("Se encontró más de un cliente");
+            return null;
+        }
+        return buscado;
+    }
+    
+    @Override
+    public void eliminarAutoNuevo(Long id) {
+        AutoNuevo elimAutoNuevo = buscarAutoNuevoID(id);
+        if (elimAutoNuevo != null){
+            System.out.println("Eliminando a "+elimAutoNuevo.getMarca()+" "+elimAutoNuevo.getModelo());
+            getEntityManager().remove(elimAutoNuevo);
+        }
+        else{
+            System.out.println("No existe nadie con ese correo");
+        }
+    }
+    
+    
+    @Override
+    public AutoNuevo editarAutoUsado(Long id, String marca, String modelo, String año, String color, int precio, Proveedor DistribuidorLote, Date fecha, int cantidad) {
+        AutoNuevo editAutoNuevo = buscarAutoNuevoID(id);
+        if (editAutoNuevo != null){
+            editAutoNuevo.setMarca(marca);
+            editAutoNuevo.setModelo(modelo);
+            editAutoNuevo.setAño(año);
+            editAutoNuevo.setColor(color);
+            editAutoNuevo.setPrecio(precio);
+            editAutoNuevo.setDistribuidor(DistribuidorLote);
+            editAutoNuevo.setFecha(fecha);
+            editAutoNuevo.setCantidad(cantidad);
+            System.out.println("Se modificó el automóvil");
+            getEntityManager().merge(editAutoNuevo);
+            return editAutoNuevo;
+        }else{
+            return null;
+        }
     }
     
 }
