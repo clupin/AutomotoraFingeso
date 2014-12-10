@@ -18,3 +18,7 @@ nbproject/private/private.properties
 nbproject/project.properties
 
 Automotora-ejb/nbproject/build-impl.xml
+/build/
+/Automotora-war/dist/
+*.class
+/Automotora-war_noPrimeFaces/nbproject/private/
