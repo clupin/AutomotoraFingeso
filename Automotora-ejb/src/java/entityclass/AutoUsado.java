@@ -47,5 +47,9 @@ public class AutoUsado extends Automovil implements Serializable {
     public void setPartes(List<Parte> partes) {
         this.partes = partes;
     }
+    
+    public void agregarParte(Parte parte){
+        this.partes.add(parte);
+    }
 
 }

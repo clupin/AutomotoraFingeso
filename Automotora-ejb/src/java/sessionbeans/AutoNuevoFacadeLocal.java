@@ -1,6 +1,8 @@
 package sessionbeans;
 
 import entityclass.AutoNuevo;
+import entityclass.Proveedor;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -20,5 +22,7 @@ public interface AutoNuevoFacadeLocal {
     List<AutoNuevo> findRange(int[] range);
 
     int count();
+
+    boolean crearAutoNuevo(Long id, String marca, String modelo, String año, String color, int precio, Proveedor DistribuidorLote, Date fecha, int cantidad);
     
 }
